@@ -49,7 +49,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::prefix('meet')->as('meet.')->group(function () {
             Route::controller(RapatController::class)->group(function () {
                 Route::get('/', 'index')->name('index');
-                Route::put('/', 'update')->name('update');
+                Route::get('/{id}', 'show')->name('show');
+                Route::post('/', 'store');
+                Route::put('/{id}', 'update');
+                Route::delete('/{id}','destroy'); 
             });
         });
     });
